@@ -1084,7 +1084,9 @@
 	    url: 'https://api.imgur.com/3/upload',
 	    type: 'post',
 	    headers: {
-	        Authorization: 'Client-ID '+clientID
+	        Authorization: 'Client-ID '+clientID,
+	        'Cache-Control': null, // this is what will match the response headers
+ 			'X-Requested-With': null
 	    },
 	    data: {
 	        image: imgUpload,
