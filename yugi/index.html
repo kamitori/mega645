@@ -1081,16 +1081,15 @@
 		// })
 
 		$.ajax({
-	    url: 'https://api.imgur.com/3/image',
+	    url: 'https://api.imgur.com/3/image.json',
 	    type: 'post',
 	    headers: {
 	        Authorization: 'Client-ID '+clientID,
-	        'Cache-Control': null, // this is what will match the response headers
- 			'X-Requested-With': null
+	        Accept: 'application/json'
 	    },
 	    data: {
 	        image: imgUpload,
-		album: albumUpload,
+			album: albumUpload,
 	        type: 'base64'
 	    },
 	    dataType: 'json',
