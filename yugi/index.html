@@ -1,0 +1,1108 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link href="https://fonts.googleapis.com/css?family=Alegreya+SC:400,500,700,800&amp;subset=vietnamese" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Vollkorn:900" rel="stylesheet">
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="fabric.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div id="loading" style="display:none;">
+		<div class="horizontal div1">
+			<div class="vertical">
+				<img src="images/loading.gif" alt="" width="256">
+			</div>
+		</div>
+	</div>
+	<div class="container">
+		<span class="hide" id="fontload1">~![] á à ổ </span>
+		<span class="hide" id="fontload2">~![] á à ổ </span>
+		<span class="hide" id="fontload3">~![] á à ổ </span>
+		<span class="hide" id="fontload4">~![] á à ổ </span>
+		<span class="hide" id="fontload5">~ễ ồng ộng ợn ẫn</span>
+		<span class="hide" id="fontload6">~ễ ồng ộng ợn ẫn</span>
+		<span class="hide" id="fontload7">~ễ ồng ộng ợn ẫn</span>
+		<span class="hide" id="fontload8">~ễ ồ ộ ợ ẫ</span>
+		<h1 class="text-center" id="title">Yugioh Card Maker</h1>
+		<div class="row">
+			<div class="left">
+				<form class="form-horizontal">
+					<div class="form-group">
+						<label for="name" class="col-xs-3 control-label">Name</label>
+						<div class="col-xs-9">
+							<input type="text" class="form-control" onkeyup="makeCard()" id="name" maxlength="32" name="name" placeholder="Name">
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="type" class="col-xs-3 control-label">Card Type</label>
+						<div class="col-xs-9">
+							<div class="input-group">
+								<select name="type" id="type"  onchange="makeCard()" class="form-control">
+									<option value="Monster">
+									Monster
+									</option>
+									<option value="Ritual">
+									Ritual
+									</option>
+									<option value="Fusion">
+									Fusion
+									</option>
+									<option value="Spell">
+									Spell
+									</option>
+									<option value="Trap">
+									Trap
+									</option>
+									<option value="Synchro">
+									Synchro
+									</option>
+									<option value="Dark Synchro">
+									Dark Synchro
+									</option>
+									<option value="Xyz">
+									Xyz
+									</option>
+								</select>
+								<span class="input-group-addon">&nbsp;&nbsp;&nbsp;</span>
+								<select name="type" id="subtype"  onchange="makeCard()" class="form-control">
+									<option value="normal" selected="true">
+									Normal
+									</option>
+									<option value="effect">
+									Effect
+									</option>
+									<option value="divine">
+									Divine
+									</option>
+									<option value="gemini">
+									Gemini
+									</option>
+									<option value="spirit">
+									Spirit
+									</option>
+									<option value="toon">
+									Toon
+									</option>
+									<option value="tuner">
+									Tuner
+									</option>
+									<option value="union">
+									Union
+									</option>
+									<option value="link">
+									Link
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Attribute</label>
+							<div class="col-xs-6">
+								<select name="attribute" onchange="makeCard()" class="form-control" id="attribute">
+									<option value="Light">
+									Light
+									</option>
+									<option value="Dark">
+									Dark
+									</option>
+									<option value="Fire">
+									Fire
+									</option>
+									<option value="Water">
+									Water
+									</option>
+									<option value="Wind">
+									Wind
+									</option>
+									<option value="Earth">
+									Earth
+									</option>
+									<option value="Divine">
+									Divine
+									</option>
+
+									<!-- <option value="Ash">
+									Ash
+									</option>
+									<option value="Mechanial">
+									Mechanial
+									</option>
+									<option value="Emerald">
+									Emerald
+									</option>
+									<option value="Magma">
+									Magma
+									</option>
+									<option value="Glass">
+									Glass
+									</option>
+									<option value="Blood">
+									Blood
+									</option>
+									<option value="Nuclear">
+									Nuclear
+									</option>
+									<option value="Hate">
+									Hate
+									</option>
+									<option value="Paranormal">
+									Paranormal
+									</option>
+									<option value="Poision">
+									Poision
+									</option>
+									<option value="Sound">
+									Sound
+									</option>
+									<option value="Magi">
+									Magi
+									</option>
+									<option value="Primal">
+									Primal
+									</option>
+									<option value="Metal">
+									Metal
+									</option>
+									<option value="Love">
+									Love
+									</option>
+									<option value="Ice">
+									Ice
+									</option>
+									<option value="Electric">
+									Electric
+									</option>
+									<option value="Omni">
+									Omni
+									</option> -->
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Level</label>
+							<div class="col-xs-6">
+								<select name="level" onchange="makeCard()" class="form-control" id="level">
+									<option value="1">1</option>
+									<option value="2">2</option>
+									<option value="3">3</option>
+									<option value="4">4</option>
+									<option value="5">5</option>
+									<option value="6">6</option>
+									<option value="7">7</option>
+									<option value="8">8</option>
+									<option value="9">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Trap/Spell Type</label>
+							<div class="col-xs-6">
+								<select class="form-control"   onchange="makeCard()"  name="trapmagictype" id="trapmagictype">
+									<option value="None">
+									None
+									</option>
+									<option value="Equip">
+									Equip
+									</option>
+									<option value="Continuous">
+									Continuous
+									</option>
+									<option value="Counter">
+									Counter
+									</option>
+									<option value="Quick-Play">
+									Quick-Play
+									</option>
+									<option value="Field">
+									Field
+									</option>
+									<option value="Ritual">
+									Ritual
+									</option>
+								</select>
+							</div>
+						</div>
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Card Rarity</label>
+							<div class="col-xs-6">
+								<select class="form-control" onchange="makeCard()" name="rarity" id="rarity">
+									<option value="Common">
+									Common
+									</option>
+									<option value="Rare">
+									Rare
+									</option>
+									<option value="Super Rare">
+									Super Rare
+									</option>
+									<option value="Ultra Rare">
+									Ultra Rare
+									</option>
+									<option value="Secret Rare">
+									Secret Rare
+									</option>
+									<option value="Ultimate Rare">
+									Ultimate Rare
+									</option>
+								</select>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="image" class="col-xs-3 control-label">Picture URL</label>
+						<div class="col-xs-6">
+							<input type="text" class="form-control"  id="url" name="url" placeholder="URL image">
+						</div>
+						<div class="col-xs-3 ">
+							<button type="button" class="btn btn-success btn-block" onclick="document.getElementById('image').click()">Upload file</button>
+							<input type="file" id="image" name="image" accept="image/*" placeholder="" style="width:0px;height:0px;visibility: hidden;">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Circulation</label>
+							<div class="col-xs-6">
+								<input type="text" name="circulation"  onchange="makeCard()" maxlength="16" id="circulation" class="form-control"/>
+							</div>
+						</div>
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-3 control-label">Set ID</label>
+							<div class="col-xs-9">
+								<div class="input-group">
+									<input type="text" name="setid1"  onchange="makeCard()" maxlength="5" id="setid1" class="form-control"/>
+									<span class="input-group-addon">-</span>
+									<input type="text" name="setid2"  onchange="makeCard()" maxlength="5" id="setid2" class="form-control"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="type" class="col-xs-3 control-label">Description</label>
+						<div class="col-xs-9">
+							<textarea class="form-control" rows="4"  onchange="makeCard()"   maxlength="200"  id="description" name="description" placeholder="Your description"></textarea>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-6 control-label">Type</label>
+							<div class="col-xs-6">
+								<input type="text" name="customtype"  onchange="makeCard()" maxlength="32"  id="customtype" class="form-control"/>
+							</div>
+						</div>
+						<div class="col-md-6 no-padding">
+							<label for="type" class="col-xs-3 control-label">ATK/DEF</label>
+							<div class="col-xs-9">
+								<div class="input-group">
+									<input type="text" name="atk" id="atk"  onchange="makeCard()" maxlength="4"  class="form-control"/>
+									<span class="input-group-addon">/</span>
+									<input type="text" name="def" id="def"  onchange="makeCard()" maxlength="4"  class="form-control"/>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-md-9 no-padding">
+							<label for="type"  class="col-xs-4 control-label">Creator</label>
+							<div class="col-xs-8">
+								<input type="text" name="creator"  onchange="makeCard()" maxlength="32" id="creator" class="form-control"/>
+							</div>
+						</div>
+						<div class="col-md-3 no-padding">
+							<label for="type" class="col-xs-4 control-label">Year</label>
+							<div class="col-xs-8">
+								<input type="text" name="year"  onchange="makeCard()" value="2017" maxlength="4" id="year" class="form-control"/>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="name" class="col-xs-3 control-label">Serial Number</label>
+						<div class="col-xs-6">
+								<input type="text"  onchange="makeCard()" onchange="makeCard()"  maxlength="10" class="form-control" id="serial" name="serial" placeholder="">
+						</div>
+						<div class="col-xs-3">
+							<button type="button" class="btn btn-warning btn-block" onclick="randomSerial()">Random</button>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-xs-12 text-center">
+							<a onclick="saveImage(this)" class="btn btn-primary">Save Image</a>
+							<a onclick="uploadToImgur()" class="btn btn-primary">Upload Image</a>
+						</div>
+						<div class="col-xs-12 text-center">
+							<input class="form-control" id="link_upload" onclick="this.select();">
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="right">
+				<canvas id="canvas" width="333" height="492">
+				</canvas>
+				<div id="test"></div>
+			</div>
+		</div>
+	</div>
+	<img id="rs_img" />
+	<p><a href="https://imgur.com/a/ctgr86e">Link Album</a></p>
+	<style type="text/css" media="screen">
+		#loading{
+			position: fixed;
+			width: 100%;
+			height: 100%;
+			z-index: 99999;
+		}	
+		div.horizontal {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+		
+		div.vertical {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+	</style>
+</body>
+<script>
+	var canvas = new fabric.Canvas('canvas');
+	canvas.selection = false;
+	canvas.isDrawingMode = false;
+	var bg = 'images/type/1.png';
+	var color_text = '#333';
+	var color_name = '#333';
+	var stroke = '#333';
+	var strokeWidth = 0;
+	var img_file = null;
+
+	
+
+
+	// var canvas = document.getElementById('canvas'),
+	// context = canvas.getContext('2d');
+	// var bg = 'images/type/1.png';
+	// var name = $("#name").val();
+	// var attribute = $("#attribute").val();
+	$(function(){
+		$.ajax({
+			url: 'https://fonts.googleapis.com/css?family=Alegreya+SC:400,500,700,800&amp;subset=vietnamese',
+			type:'GET',
+			async: true,
+			success:function(){
+				makeCard();
+			}
+		});
+
+		$("#image").on("change",function(e){
+			var reader = new FileReader();
+			reader.onload = function (event){
+				var imgObj = new Image();
+				imgObj.src = event.target.result;
+				imgObj.onload = function () {
+					var img = new fabric.Image(imgObj);
+					img.set('selectable', false);
+					img.set({
+						centeredRotation: true,
+						centeredScaling: true,
+						scaleX: 251 / img.width,
+						scaleY: 251 / img.height,
+					});
+					img.set('top', 103);
+					img.set('left',42);
+					img_file = img;
+					makeCard();
+					// canvas.add(img);
+					// canvas.requestRenderAll();
+				}
+			}
+			reader.readAsDataURL(e.target.files[0]);
+		})
+
+		$("#url").on("change",function(e){
+			var link = $(this).val();
+			fabric.Image.fromURL(link, function(img) {
+					if (!img.getElement()) {
+				    alert('Ảnh từ host này vì lý do bảo mật ko cho phép lấy hình, xin vui lòng chọn link khác hoặc dùng tính năng upload file');
+				    return;
+				  }
+					img.set('selectable', false);
+					img.set({
+						centeredRotation: true,
+						centeredScaling: true,
+						scaleX: 251 / img.width,
+						scaleY: 251 / img.height,
+					});
+					img.set('top', 103);
+					img.set('left',42);
+					img_file = img;
+					makeCard();
+			}, { crossOrigin: 'Anonymous' })
+		})
+	})
+	
+	function drawImgFile(img){
+		canvas.add(img);
+		canvas.requestRenderAll();
+	}
+
+	function makeCard(){
+		drawSomething();
+		drawBG();
+		console.log("Draw Card");
+	}
+
+
+	function drawBG(){
+		var type = $("#type").val();
+		var subtype = $("#subtype").val();
+		$("#trapmagictype").attr('disabled',true);
+		$("#attribute").attr('disabled',false);
+		color_name = '#333';
+		color_text = '#333';
+		color_brand = '#333';
+		star = 'images/star/level.png';
+
+		if(type == "Monster"){
+			var bg = 'images/type/1.gif';
+		}
+		if(type == "Monster" && (subtype=="effect" || subtype=="gemini" || subtype=="spirit" || subtype=="toon" || subtype=="tuner" || subtype=="union")){
+			var bg = 'images/type/2.gif';
+		}
+		if(type == "Monster" && subtype=="link"){
+			var bg = 'images/type/3.gif';
+		}
+		if(type == "Monster" && subtype=="divine"){
+			var bg = 'images/type/11.gif';
+		}
+		
+		if(type == "Ritual"){
+			var bg = 'images/type/14.gif';
+		}
+
+		if(type == "Fusion"){
+			var bg = 'images/type/4.gif';
+		}
+
+		if(type == "Spell"){
+			var bg = 'images/type/9.gif';
+			$("#trapmagictype").attr('disabled',false);
+			$("#attribute").attr('disabled',true);
+			color_name = '#FFF';
+		}
+
+		if(type == "Trap"){
+			var bg = 'images/type/10.gif';
+			$("#trapmagictype").attr('disabled',false);
+			$("#attribute").attr('disabled',true);
+			color_name = '#FFF';
+		}
+
+		if(type =="Synchro"){
+			var bg = 'images/type/6.gif';
+		}
+		if(type == "Dark Synchro"){
+			var bg = 'images/type/7.gif';
+			color_name = '#FFF';
+		}
+		if(type == "Xyz"){
+			var bg = 'images/type/8.gif';
+			color_name = '#FFF';
+			color_brand = '#fff';
+			star = 'images/star/rank.png';
+		}
+
+
+		fabric.Image.fromURL(bg, function(bg_img) {
+			bg_img.set('selectable', false);
+			canvas.add(bg_img);
+			canvas.requestRenderAll();
+			level = parseInt($("#level").val());
+			drawAttribute();
+			if(type == "Spell"){
+				drawAttribute("Spell");
+				drawTrap("Spell Card");
+				level = 0;
+			}
+			if(type == "Trap"){
+				drawAttribute("Trap");
+				drawTrap("Trap Card");
+				level = 0;
+			}
+			drawName();
+			drawStar(level,star);
+			if(img_file){
+				drawImgFile(img_file);
+			}
+			drawBrand();
+			drawType();
+			drawDescription();
+			if(type != "Spell" && type != "Trap"){
+				drawAtk();
+			}
+		});
+	}
+
+	function drawSomething(){
+		var text_name1 = new fabric.Text('ẵ ổ ễ cồn chộn mễ', { 
+				left: 10000,
+				top:  10000,
+				fontSize: 12,
+				fill: '#fff',
+				fontWeight: '400',
+				fontFamily: 'Alegreya SC'
+		});
+		text_name1.set('selectable', false);
+		canvas.add(text_name1);
+		var text_name2 = new fabric.Text('ẵ ổ ễ cồn chộn mễ', { 
+				left: 10000,
+				top:  10000,
+				fontSize: 12,
+				fill: '#fff',
+				fontWeight: '500',
+				fontFamily: 'Alegreya SC'
+		});
+		text_name2.set('selectable', false);
+		canvas.add(text_name2);
+		var text_name3 = new fabric.Text('ẵ ổ ễ cồn chộn mễ', { 
+				left: 10000,
+				top:  10000,
+				fontSize: 12,
+				fill: '#fff',
+				fontWeight: '700',
+				fontFamily: 'Alegreya SC'
+		});
+		text_name3.set('selectable', false);
+		canvas.add(text_name3);
+		var text_name4 = new fabric.Text('ẵ ổ ễ cồn chộn mễ', { 
+				left: 10000,
+				top:  10000,
+				fontSize: 12,
+				fill: '#fff',
+				fontWeight: '800',
+				fontFamily: 'Alegreya SC'
+		});
+		text_name4.set('selectable', false);
+		canvas.add(text_name4);
+		canvas.requestRenderAll();
+
+		var text_name5 = new fabric.Text('asdfASDF', { 
+				left: 10000,
+				top:  10000,
+				fontSize: 12,
+				fill: '#fff',
+				fontWeight: '900',
+				fontFamily: 'Vollkorn'
+		});
+		text_name5.set('selectable', false);
+		canvas.add(text_name5);
+		canvas.requestRenderAll();
+	}
+
+	function drawName(){
+		name = $("#name").val();
+		name = capitalizeFirstLetter(name);
+		rarity = $("#rarity").val();
+		rubberX = 1;
+		rubberY = 1.6;
+		rubberLeft = 28;
+		rubberTop = 32;
+		rubberFont = 22;
+		if(name.length>20){
+			rubberX = 1;
+			rubberY = 2;
+			rubberLeft = 28;
+			rubberTop = 34;
+			rubberFont = 18;
+		}
+		if(name.length>26){
+			rubberX = 1;
+			rubberY = 2.6;
+			rubberLeft = 28;
+			rubberTop = 36;
+			rubberFont = 14;
+		}
+		strokeWidth = 0;
+		switch (rarity){
+			case 'Rare':
+				color_name = '#909090';
+				stroke = '#a8a8a8';
+				strokeWidth = 0.5;
+				break;
+			case 'Super Rare':
+				color_name = '';
+				stroke = '#333';
+				if($("#type").val()=='Xyz'){
+					stroke = '#fff';
+				}
+				strokeWidth = 1;
+				break;
+			case 'Ultra Rare':
+				color_name = '#664A2A';
+				stroke = '#808F6D';
+				strokeWidth = 1;
+				break;
+			case 'Secret Rare':
+				color_name = '#d1d5d9';
+				stroke = '#fff';
+				strokeWidth = 0.5;
+				break;
+			case 'Ultimate Rare':
+				color_name = '#A0522D';
+				stroke = '#bf9b30';
+				strokeWidth = 1;
+				break;
+			default:
+				color_name = '#333';
+				stroke = '#fff';
+				strokeWidth = 0;
+				break;
+				
+		}
+		var text_name = new fabric.Text(name, { 
+				left: rubberLeft,
+				top:  rubberTop,
+				fontSize: rubberFont,
+				transformMatrix: [ rubberX, 0, 0, rubberY, 0, 0 ],
+				fill: color_name,
+				fontWeight: '500',
+				fontFamily: 'Alegreya SC',
+				stroke: stroke,
+				strokeWidth: strokeWidth
+		});
+		text_name.set('selectable', false);
+		canvas.add(text_name);
+		canvas.requestRenderAll();
+	}
+
+	function drawType(){
+		_type = $("#type").val();
+		_subtype = $("#subtype").val();
+		_customtype = $("#customtype").val();
+		var typeText = '';
+		if(_type=='Monster'){
+			if(_subtype=='normal'){
+				_subtype = '';
+			}
+			if(_customtype!=''){
+				if(_subtype!=''){
+					typeText = '[ '+_customtype+'/'+_subtype+' ]';
+				}else{
+					typeText = '[ '+_customtype+' ]';
+				}
+			}else{
+				if(_subtype!=''){
+					typeText = '[ '+_subtype+' ]';
+				}
+			}
+		}else{
+			if(_subtype=='normal'){
+				_subtype = '';
+			}
+			if(_customtype!=''){
+				if(_subtype!=''){
+					typeText = '[ '+_customtype+'/'+_type+'/'+_subtype+' ]';
+				}else{
+					typeText = '[ '+_customtype+'/'+_type+' ]';
+				}
+			}else{
+				if(_subtype!=''){
+					typeText = '[ '+_type+'/'+_subtype+' ]';
+				}else{
+					typeText = '[ '+_type+' ]';
+				}
+				
+			}
+		}
+		if(_subtype == 'divine'){
+			typeText = '[ Divine-Beast ]';
+		}
+		if(_type=='Spell' || _type=='Trap'){
+			typeText = '';
+		}
+		typeText = capitalizeFirstLetter(typeText);
+		var text_type = new fabric.Text(typeText, { 
+				left: 32,
+				top:  377,
+				fontSize: 14,
+				fill: color_text,
+				fontWeight: '800',
+				fontFamily: 'Alegreya SC'
+		});
+		text_type.set('selectable', false);
+		canvas.add(text_type);
+		canvas.requestRenderAll();
+	}
+
+	function drawDescription(){
+		_type = $("#type").val();
+		_subtype = $("#subtype").val();
+		_customtype = $("#customtype").val();
+		description = $("#description").val();
+		description = description.replace(/\n/g, ". ");
+		topDes = 392;
+		if(_type=='Spell' || _type=='Trap'){
+			topDes = 380;
+		}
+		if(_type=='Monster'&&_subtype=='normal'&&_customtype==''){
+			topDes = 380;
+		}
+		var text_type = new fabric.Textbox(description, { 
+				left: 32,
+				top:  topDes,
+				width: 269,
+				lineHeight: 0.9,
+				fontSize: 13,
+				textAlign: 'justify-wrapped',
+				scaleX: 269/269,
+				scaleY: 150/150,
+				fill: color_text,
+				fontWeight: '600',
+				fontFamily: 'serif'
+		});
+		text_type.set('selectable', false);
+		canvas.add(text_type);
+		canvas.requestRenderAll();
+	}
+
+	function drawAtk(){
+		atk = $("#atk").val();
+		def = $("#def").val();
+		if(!atk){
+			atk = 0;
+		}
+		if(!def){
+			def = 0;
+		}
+		canvas.add(new fabric.Line([0, 200, 272, 200], {
+				left: 30,
+				top: 450,
+				stroke: '#333'
+		}));
+
+		var atkText = '';
+
+		atkText = 'ATK/'+atk+'    '+'DEF/'+def;
+		var text_atk = new fabric.Textbox(atkText, { 
+				right: 138,
+				top:  450,
+				fontSize: 14,
+				width:295,
+				height:300,
+				textAlign:'right',
+				fill: color_text,
+				fontWeight: '900',
+				fontFamily: 'Vollkorn'
+		});
+		text_atk.set('selectable', false);
+		canvas.add(text_atk);
+		canvas.requestRenderAll();
+	}
+
+	function drawBrand(){
+		circulation = $("#circulation").val()
+		var text_circulation = new fabric.Text(circulation, { 
+				left: 32,
+				top:  360,
+				fontSize: 12,
+				fill: color_brand,
+				fontWeight: '600',
+				fontFamily: 'serif'
+		});
+		text_circulation.set('selectable', false);
+		canvas.add(text_circulation);
+		canvas.requestRenderAll();
+
+		setid1 = $("#setid1").val();
+		setid2 = $("#setid2").val();
+		if(setid2!=''){
+			setid = setid1+'-'+setid2;
+		}else{
+			setid = setid1;
+		}
+		var text_setid = new fabric.Textbox(setid, { 
+				right: 123,
+				top:  360,
+				fontSize: 12,
+				width:300,
+				height:300,
+				textAlign:'right',
+				fill: color_brand,
+				fontWeight: '600',
+				fontFamily: 'serif'
+		});
+		text_setid.set('selectable', false);
+		canvas.add(text_setid);
+		canvas.requestRenderAll();
+
+
+		creator = $("#creator").val().toUpperCase();
+		year = $("#year").val();
+		if(creator!=''){
+			year = year+' '+creator;
+		}
+		if(year != ''){
+			year = 'Ⓒ'+year;
+		}
+		var text_year = new fabric.Textbox(year, { 
+				right: 123,
+				top:  471,
+				fontSize: 12,
+				width:300,
+				height:300,
+				textAlign:'right',
+				fill: color_brand,
+				fontWeight: '600',
+				fontFamily: 'serif'
+		});
+		text_year.set('selectable', false);
+		canvas.add(text_year);
+		canvas.requestRenderAll();
+
+		serial = $("#serial").val()
+		var text_serial = new fabric.Text(serial, { 
+				left: 32,
+				top:  471,
+				fontSize: 12,
+				fill: color_brand,
+				fontWeight: '600',
+				fontFamily: 'serif'
+		});
+		text_serial.set('selectable', false);
+		canvas.add(text_serial);
+		canvas.requestRenderAll();
+	}
+
+	function drawTrap(trap){
+		left_attr = 190;
+		if(trap=='Spell Card'){
+			left_attr = 187;
+		}
+		if(trap=='Trap Card'){
+			left_attr = 192;
+		}
+		var typetrap = $("#trapmagictype").val();
+		if(typetrap == 'None'){
+			trap = '[ '+capitalizeFirstLetter(trap)+' ]';
+		}else{
+			trap = '[ '+capitalizeFirstLetter(trap)+'      ]';
+			left_attr = left_attr - 14;
+			drawTypeTrap(typetrap)
+		}
+		
+
+		var text_trap = new fabric.Text(trap, { 
+				left: left_attr,
+				top: 70,
+				fontSize: 16,
+				textAlign: 'left',
+				transformMatrix: [ 1.4, 0, 0, 1.4, 0, 0 ],
+				fill: color_text,
+				fontWeight: '700',
+				fontFamily: 'Alegreya SC'
+		});
+		text_trap.set('selectable', false);
+		canvas.add(text_trap);
+		canvas.requestRenderAll();
+	}
+
+	function drawTypeTrap(type){
+		link = 'images/spelltype/'+type+'.webp';
+		fabric.Image.fromURL(link, function(typetrap_image) {
+			typetrap_image.set('selectable', false);
+			typetrap_image.set('top',63);
+			typetrap_image.set('left', 270);
+			typetrap_image.set('transformMatrix',[ 0.5, 0, 0, 0.5, 0, 0 ]);
+			canvas.add(typetrap_image);
+			canvas.requestRenderAll();
+		});
+	}
+
+	function drawAttribute(attribute){
+		if(!attribute){
+			attribute = $("#attribute").val();
+		}
+		link = 'images/attr/'+attribute+'.png';
+		var top_attr = -30;
+		if(attribute=='Spell' || attribute=='Trap'){
+			top_attr = -29;
+		}
+		fabric.Image.fromURL(link, function(attribute_image) {
+			attribute_image.set('selectable', false);
+			attribute_image.set('top', top_attr);
+			attribute_image.set('left', 215);
+			attribute_image.set('transformMatrix',[ 0.25, 0, 0, 0.25, 0, 0 ]);
+			canvas.add(attribute_image);
+			canvas.requestRenderAll();
+		});
+	}
+
+	function drawStar(level,star){
+		if(!star){
+			var star = 'images/star/level.png';
+		}
+		if(!level){
+			level = 0;
+		}
+		if(star == 'images/star/rank.png'){
+			for(var i=0; i<level; i++){
+				fabric.Image.fromURL(star+'?q=i', function(star_image) {
+					canvas.add(star_image);
+					canvas.requestRenderAll();
+				},{
+					id:'star'+i,
+					num: i,
+					selectable: false,
+					top: 40,
+					left: 0+(23*i),
+					transformMatrix: [ 0.27, 0, 0, 0.27, 0, 0 ]
+				});
+			}
+		}else{
+			for(var i=0; i<level; i++){
+				fabric.Image.fromURL(star, function(star_image) {
+					canvas.add(star_image);
+					canvas.requestRenderAll();
+				},{
+					id:'star'+i,
+					num: i,
+					selectable: false,
+					top: 40,
+					left: 250-(23*i),
+					transformMatrix: [ 0.27, 0, 0, 0.27, 0, 0 ]
+				});
+			}
+		}
+	}
+
+	function drawImg(){
+		link = $("#url").val();
+		if(link!=''){
+			fabric.Image.fromURL(link, function(img) {
+					img.set('selectable', false);
+					img.set({
+						centeredRotation: true,
+						centeredScaling: true,
+						scaleX: 251 / img.width,
+						scaleY: 251 / img.height,
+					});
+					img.set('top', 103);
+					img.set('left',42);
+					canvas.add(img);
+					canvas.requestRenderAll();
+			}, { crossOrigin: 'Anonymous' })
+		}
+	}
+
+	function capitalizeFirstLetter(string) {
+		var arr_str1 = string.split(' ');
+		for(var i=0; i<arr_str1.length;i++){
+			var arr_str2 = arr_str1[i].split('-');
+			for(var j=0; j<arr_str2.length;j++){
+				arr_str2[j] = capString(arr_str2[j]);
+			}
+			arr_str1[i] = capString(arr_str2.join('-'))
+		}
+		return capString(arr_str1.join(' '))
+	}
+
+	function capString(string){
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+
+	function randomSerial(){
+		var serial = '';
+		var count_serial = randomBetween(6,10);
+		console.log(count_serial);
+		for(var i=0;i<count_serial;i++){
+			if(i==0){
+				serial = serial + randomBetween(1,9);
+			}else{
+				serial = serial + randomBetween(0,9);
+			}
+		}
+		$("#serial").val(serial);
+		$("#serial").trigger('change');
+	}
+
+	function randomBetween(min, max) {
+		value =  Math.floor(Math.random()*max)+min;
+		value = value>max?value-min:value;
+		value = value<min?min:value;
+		return Math.floor(value);
+	}
+
+	function saveImage(obj){
+		obj.href = canvas.toDataURL({
+				format: 'png',
+				quality: 1
+		});
+		var d = new Date();
+		var time = d.getTime();
+		obj.download = 'your-card-'+time+'.png'
+	}
+
+	function uploadToImgur(){
+		var clientID = '408ca149befe324';
+		var clientSecret = 'e1dfcbd26a488cf9f92a99e47a327d939973e8ee';
+		var imgUpload = canvas.toDataURL('image/jpeg', 0.9).split(',')[1];
+		var albumUpload = 'Xa3XTQx9iA8Kqp1';
+		// $.ajax({
+		// 	url : 'https://api.imgur.com/oauth2/authorize',
+		// 	type: 'GET',
+		// 	data:{
+		// 		client_id: clientID,
+		// 		// client_secret: clientSecret,
+		// 		response_type: 'token'
+		// 	},
+		// 	// dataType: 'json',
+		// 	success: function(response) {
+		// 		console.log(response);
+		// 	}
+		// })
+
+		$.ajax({
+	    url: 'https://api.imgur.com/3/upload',
+	    type: 'post',
+	    headers: {
+	        Authorization: 'Client-ID '+clientID
+	    },
+	    data: {
+	        image: imgUpload,
+		album: albumUpload,
+	        type: 'base64'
+	    },
+	    dataType: 'json',
+	    beforeSend:function(){
+	    	$("#loading").show();
+	    },
+	    success: function(response) {
+	    		$("#loading").hide();
+	        if(response.success) {
+	        		console.log(response);
+	            $("#link_upload").val( "[IMG]"+response.data.link+"[/IMG]" );
+	        }
+	    }
+		});
+	}
+</script>
+</html>

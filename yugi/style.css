@@ -1,0 +1,93 @@
+@font-face {
+    font-family: 'fontcap';
+    src: url('/stock/font/corporat.ttf');
+    font-weight: 800;
+}
+
+.form-control, .control-label, .btn, .input-group-addon{
+	font-size: 14px;
+	padding: 3px 8px;
+	height:30px;
+}
+.hide{
+	color: rgba(255,255,255,.1);
+}
+#fontload1{
+	font-family: 'Alegreya SC';
+	font-weight: 400;
+}
+#fontload2{
+	font-family: 'Alegreya SC';
+	font-weight: 500;
+}
+#fontload3{
+	font-family: 'Alegreya SC';
+	font-weight: 700;
+}
+#fontload4{
+	font-family: 'Alegreya SC';
+	font-weight: 800;
+}
+#fontload5{
+	font-family: 'Alegreya SC';
+	font-weight: 400;
+}
+#fontload6{
+	font-family: 'Alegreya SC';
+	font-weight: 500;
+}
+#fontload7{
+	font-family: 'Alegreya SC';
+	font-weight: 700;
+}
+#fontload8{
+	font-family: 'Alegreya SC';
+	font-weight: 800;
+}
+#title{
+	font-family: 'Alegreya SC';
+}
+body {
+	background: url(images/bg.jpg) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-color: rgba(1,1,1,.5);
+	overflow: auto;
+}
+.container{
+	margin-top: 5px;
+	background-color: rgba(255,255,255,.8);
+	padding: 25px;
+}
+canvas{
+	margin: auto;
+	display:block;
+	box-shadow: 4px 4px 10px #333;
+	width:333px;
+	height: 492px;
+}
+.control-label::after{
+	content:":";
+}
+
+.no-padding{
+	padding-right: 0 !important;
+	padding-left: 0 !important;
+}
+textarea {
+   resize: none;
+}
+.left{
+	float:left;
+	width:63.33333%;
+}
+
+.right{
+	float:left;
+	width:36.66666%;
+}
+.canvas-container{
+	margin: auto;
+}
